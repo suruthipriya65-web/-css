@@ -1,297 +1,476 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WatchWorld</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio - Jane Doe</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle animated background gradient */
+        .animated-gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* More professional pastel gradient for portfolio */
+        .portfolio-gradient {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
 </head>
-<body>
-  <!-- 🔹 Navigation -->
-   <div>
-  <header>
- <nav>
-    <h1>watches world</h1>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#cart">your Cart</a></li>
-        <li><a href="#contact">delivery details</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- 🔹 Landing Page -->
-  <section id="home" class="landing">
-
-  <div class="hero">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.NnKsyXztyWVgAsI-1EbrvgHaDt?pid=Api&P=0&h=180" alt="watch Image" class="hero-img">
-  
-    <div class="hero-text">
-    <h2>The Art of Time</h2>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d121b]">
+    <div class="relative min-h-screen flex flex-col w-full overflow-x-hidden">
+        <!-- Dark Themed Navbar -->
+        <header class="w-full bg-[#1e293b] text-white border-b border-gray-700 sticky top-0 z-50">
+            <div class="layout-container max-w-[1200px] mx-auto px-4 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <!-- Logo / Name -->
+                <div class="flex items-center gap-3">
+                    <div class="size-8 rounded bg-primary flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-xl">biotech</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">Jane Doe</h2>
+                </div>
+                <!-- Navigation -->
+                <nav class="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+                    <a class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors bg-white/5 border border-white/5" href="#">Home</a>
+                    <a class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors border border-transparent" href="#skills">About</a>
+                    <a class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors border border-transparent" href="#projects">Projects</a>
+                    <a class="px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/10 transition-colors border border-transparent" href="#">Resume</a>
+                    <button class="ml-2 flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors">
+                        Contact Me
+                    </button>
+                </nav>
+            </div>
+        </header>
+        <!-- Hero Section -->
+        <main>
+            <section class="flex-grow relative flex flex-col items-center justify-center px-4 sm:px-8 py-12 sm:py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+                <!-- Abstract background decorative elements -->
+                <div class="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                <div class="absolute bottom-20 right-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl -z-10"></div>
+                <!-- Biotech/Code Pattern Overlay (Very subtle) -->
+                <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#135bec 1px, transparent 1px); background-size: 32px 32px;"></div>
+                <div class="max-w-4xl w-full text-center flex flex-col items-center gap-8 relative z-10">
+                    <!-- Intro Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm text-sm font-medium text-slate-600 dark:text-slate-300">
+                        <span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Open to work &amp; collaborations
+                    </div>
+                    <!-- Headings -->
+                    <div class="space-y-4">
+                        <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-[1.1]">
+                        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">Jane Doe</span>
+</h1>
+                        <p class="text-xl sm:text-2xl md:text-3xl font-normal text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        Building the future at the intersection of <span class="font-bold text-slate-800 dark:text-slate-100">Biology</span> and <span class="font-bold text-slate-800 dark:text-slate-100">Code</span>.
+                    </p>
+                        <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
+                        Biotechnology Student | Beginner Web Developer
+                    </p>
+                    </div>
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full justify-center">
+                        <button class="w-full sm:w-auto flex items-center justify-center h-12 px-8 rounded-lg bg-primary hover:bg-blue-600 text-white text-base font-bold shadow-lg shadow-blue-500/20 transition-all transform hover:-translate-y-0.5">
+                        Check out my projects
+                    </button>
+                        <button class="w-full sm:w-auto flex items-center justify-center h-12 px-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-base font-bold hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all transform hover:-translate-y-0.5">
+                        Download Resume
+                    </button>
+                    </div>
+                    <!-- Action Bar / Icons -->
+                    <div class="grid grid-cols-3 gap-8 mt-12 w-full max-w-md border-t border-slate-200 dark:border-slate-700 pt-8">
+                        <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                            <div class="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[24px]">code</span>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Code</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                            <div class="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[24px]">science</span>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Research</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                            <div class="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[24px]">hub</span>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Connect</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                    <span class="text-xs font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">Scroll Down</span>
+                    <span class="material-symbols-outlined text-slate-400 dark:text-slate-500">keyboard_arrow_down</span>
+                </div>
+            </section>
+            <section id="skills" class="flex-grow w-full px-4 md:px-10 py-12 flex justify-center bg-gradient-to-b from-background-light to-white dark:from-background-dark dark:to-[#0b0f17]">
+                <div class="w-full max-w-[1024px] flex flex-col gap-10">
+                    <!-- Section Header -->
+                    <div class="flex flex-col items-center text-center space-y-3">
+                        <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase">Expertise</span>
+                        <h1 class="text-4xl md:text-5xl font-bold text-[#0d121b] dark:text-white tracking-tight">
+                    Bridging <span class="text-primary">Biology</span> &amp; <span class="text-primary">Technology</span>
+</h1>
+                        <p class="max-w-xl text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                    Combining wet lab precision with modern frontend development to build tools for the future of science.
+                </p>
+                    </div>
+                    <!-- Skills Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                        <!-- Card 1: Web Development -->
+                        <div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2a] p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <span class="material-symbols-outlined !text-6xl text-primary">code</span>
+                            </div>
+                            <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">html</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0d121b] dark:text-white">Web Development</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Building responsive interfaces and interactive web applications.</p>
+                            </div>
+                            <div class="border-t border-slate-100 dark:border-slate-700/50 my-2"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">HTML5 &amp; CSS3</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">JavaScript (ES6+)</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">React.js</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Git/GitHub</span>
+                            </div>
+                        </div>
+                        <!-- Card 2: Biotechnology -->
+                        <div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2a] p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <span class="material-symbols-outlined !text-6xl text-primary">biotech</span>
+                            </div>
+                            <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">science</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0d121b] dark:text-white">Biotechnology</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Expertise in laboratory techniques and biological research.</p>
+                            </div>
+                            <div class="border-t border-slate-100 dark:border-slate-700/50 my-2"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Molecular Biology</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">PCR &amp; Gel Electrophoresis</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Cell Culture</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Genetics</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Lab Safety</span>
+                            </div>
+                        </div>
+                        <!-- Card 3: Bioinformatics & Tools -->
+                        <div class="group relative flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2a] p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <span class="material-symbols-outlined !text-6xl text-primary">terminal</span>
+                            </div>
+                            <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <span class="material-symbols-outlined">analytics</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0d121b] dark:text-white">Data &amp; Tools</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Bridging the gap with data analysis and research tools.</p>
+                            </div>
+                            <div class="border-t border-slate-100 dark:border-slate-700/50 my-2"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Python (Basics)</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Data Analysis</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">VS Code</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Research Methods</span>
+                                <span class="px-3 py-1 rounded-md bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Call to Action Banner -->
+                    <div class="mt-8 rounded-2xl bg-gradient-to-r from-[#101622] to-[#1e293b] p-8 md:p-12 relative overflow-hidden text-white shadow-xl">
+                        <!-- Abstract decorative shapes -->
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+                        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="space-y-2 text-center md:text-left">
+                                <h3 class="text-2xl md:text-3xl font-bold">Interested in collaborating?</h3>
+                                <p class="text-slate-300 max-w-lg">I'm currently open to internships and junior roles in both biotech and web development.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-bold tracking-wide transition-colors shadow-lg shadow-primary/25">
+                            Contact Me
+                        </button>
+                                <button class="px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-bold tracking-wide transition-colors backdrop-blur-sm border border-white/10">
+                            Download CV
+                        </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="flex-1 bg-gradient-to-b from-[#f8f9fc] via-[#eef2ff] to-[#f8f9fc]">
+                <div class="layout-container flex flex-col mx-auto max-w-[1200px] px-4 md:px-10 py-12 md:py-20">
+                    <!-- Section Header -->
+                    <div class="flex flex-col max-w-[800px] mb-12">
+                        <div class="flex items-center gap-2 text-primary mb-2">
+                            <span class="material-symbols-outlined text-sm">terminal</span>
+                            <span class="text-sm font-bold uppercase tracking-wider">Selected Works</span>
+                        </div>
+                        <h2 class="text-[#0d121b] text-4xl md:text-5xl font-bold leading-tight tracking-[-0.02em] mb-4">
+                        Featured Projects
+                    </h2>
+                        <p class="text-[#4c669a] text-lg md:text-xl font-normal leading-relaxed max-w-2xl">
+                        A collection of work blending biotechnology research with modern web development. Exploring the intersection of data, biology, and user interface design.
+                    </p>
+                    </div>
+                    <!-- Projects Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card 1: DNA Analyzer -->
+                        <article class="flex flex-col h-full bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_24px_rgba(19,91,236,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-gray-100 group">
+                            <div class="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract visualization of DNA helix structures in blue and purple gradients" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdls71Uw1HCShEylASzXfyRY_-pv4LfHz-mvRzVgyg5dhzwZ32nqsuUpbm5xJRlWfVwcH4LXtUHROYsAyK-lMHXHCjUH_6-ZtCDHadSdzv6y9JV7Pmhs3vqv3mjoBPux2pfZ8Mq4IhWLbeTnhCqkjZBg8qD8k7wfahyF45M6dGyin7uv_eMGYI_Jubrbv2OWBg4uqhqXKQq3Adegc_hscbCAdlxkUMQwHBVtDgLYWmsGAbikNA5w2ifjh9J9V4S1IRMaLX1a-bzs8");'>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm text-primary">
+                                    <span class="material-symbols-outlined text-xl">biotech</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 p-6">
+                                <div class="mb-4">
+                                    <h3 class="text-[#0d121b] text-xl font-bold leading-tight tracking-tight mb-2 group-hover:text-primary transition-colors">DNA Sequence Analyzer</h3>
+                                    <p class="text-[#4c669a] text-sm leading-relaxed line-clamp-3">
+                                    A high-performance Python script utilizing Biopython to parse FASTA files and visualize GC content distributions for genomic research. Optimized for large datasets.
+                                </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">Python</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">Biopython</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">Matplotlib</span>
+                                </div>
+                                <a class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0d121b] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">code</span>
+                                View on GitHub
+                            </a>
+                            </div>
+                        </article>
+                        <!-- Card 2: Lab Inventory -->
+                        <article class="flex flex-col h-full bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_24px_rgba(19,91,236,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-gray-100 group">
+                            <div class="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern dashboard interface displaying charts and inventory data lists" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdCI1Vo-_aGNlJ7r4kJSzNQ4SRGAaFaAAfvaCrI7IE4eEy5N3yTo0lwPyQF-QsJir2ZJVE0iP8NH9c56sx34mpygIdKeFDRNcZb75fR5NA8D7Z465EHJrejEuguhLzvUbN_L9oAxgy4S2v8MHuBKr4ijX5aievn62HgnKhHdJhQU5D-4w3ZfTnASazv6MecbY31beh-kNO_wyiSd-UL_qaWQXmt-QY1Gy1Wb4VzD7mS6S2HYEUw9U01Gj9ONNL2CliaDquwfe1Zus");'>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm text-primary">
+                                    <span class="material-symbols-outlined text-xl">inventory_2</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 p-6">
+                                <div class="mb-4">
+                                    <h3 class="text-[#0d121b] text-xl font-bold leading-tight tracking-tight mb-2 group-hover:text-primary transition-colors">Lab Inventory Tracker</h3>
+                                    <p class="text-[#4c669a] text-sm leading-relaxed line-clamp-3">
+                                    A full-stack CRUD application for managing laboratory reagents, equipment tracking, and safety data sheets. Features real-time stock alerts and user role management.
+                                </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">React</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">Node.js</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">MongoDB</span>
+                                </div>
+                                <a class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0d121b] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">code</span>
+                                View on GitHub
+                            </a>
+                            </div>
+                        </article>
+                        <!-- Card 3: Portfolio -->
+                        <article class="flex flex-col h-full bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_24px_rgba(19,91,236,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-gray-100 group">
+                            <div class="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+                                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist laptop workspace setup with code on screen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAVEmeVxfSvwnTaK52P-yYrNMgBVyfjbYZ-klwqkqSHPKEvEQpcf8LM8KHY_BXS3XTv3fvr7WumxvQDd6l99wAkiR5m3GKB9XoIjOWHZ7wAXJCK7WTWED1cif5tmfNcyYEurdZA-hD5kw-kd1g8JPTlXcFrYxJLtDF9Kzr3U8c_hQmsF8wo7Z1-RA-YqORYhVcNy0tIbaMjXvUGquVgqteo0XimYZue6VCWv_8vv7h0sWp0V9eRLwztfBSKAYZuwEKK-Vo5nTxhwo");'>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm text-primary">
+                                    <span class="material-symbols-outlined text-xl">web</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 p-6">
+                                <div class="mb-4">
+                                    <h3 class="text-[#0d121b] text-xl font-bold leading-tight tracking-tight mb-2 group-hover:text-primary transition-colors">Portfolio Website V1</h3>
+                                    <p class="text-[#4c669a] text-sm leading-relaxed line-clamp-3">
+                                    Responsive personal website designed to showcase biotechnology research and web development projects. Built with a focus on clean UI/UX and accessibility.
+                                </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">HTML5</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">Tailwind CSS</span>
+                                    <span class="inline-flex items-center rounded-md bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">JavaScript</span>
+                                </div>
+                                <a class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0d121b] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">code</span>
+                                View on GitHub
+                            </a>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- "More" Indicator -->
+                    <div class="mt-16 flex justify-center">
+                        <button class="group flex items-center gap-2 text-[#4c669a] text-sm font-medium hover:text-primary transition-colors">
+<span>View All Projects</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer Component -->
+        <footer class="relative flex flex-col w-full bg-[#f8f9fc] dark:bg-[#101622] border-t border-slate-200 dark:border-slate-800">
+            <!-- Gradient overlay for pastel theme -->
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-primary/5 to-transparent pointer-events-none"></div>
+            <div class="layout-container flex h-full grow flex-col relative z-10">
+                <div class="px-5 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+                    <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                        <!-- Top Footer Section: Branding & Links -->
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 py-12">
+                            <!-- Left: Branding & Tagline -->
+                            <div class="col-span-1 md:col-span-5 flex flex-col gap-4 text-center md:text-left items-center md:items-start">
+                                <a class="flex items-center gap-2 text-2xl font-bold text-slate-900 dark:text-white group" href="#">
+                                    <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                        <span class="material-symbols-outlined">biotech</span>
+                                    </div>
+                                    <span>Jane Doe<span class="text-primary">.bio</span></span>
+                                a>
+                                <p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-relaxed max-w-sm">
+                                Exploring the intersection of biotechnology and web development. Building modern interfaces for scientific solutions.
+                            </p>
+                                <!-- Newsletter/Contact Quick Action -->
+                                <div class="mt-4 w-full max-w-xs">
+                                    <form class="flex items-center bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden focus-within:ring-2 focus-within:ring-primary/50 transition-all">
+                                        <span class="material-symbols-outlined text-slate-400 pl-3">mail</span>
+                                        <input class="w-full bg-transparent border-none text-sm p-3 focus:ring-0 placeholder:text-slate-400 dark:text-white" placeholder="Get in touch..." type="email" />
+                                        <button class="pr-3 text-primary hover:text-primary/80" type="submit">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Right: Navigation Links -->
+                            <div class="col-span-1 md:col-span-7 flex flex-wrap justify-center md:justify-end gap-10 md:gap-20">
+                                <div class="flex flex-col gap-4 text-center md:text-left">
+                                    <h4 class="text-slate-900 dark:text-white font-bold text-sm uppercase tracking-wider">Navigation</h4>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">Home</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">About Me</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">My Projects</a>
+                                </div>
+                                <div class="flex flex-col gap-4 text-center md:text-left">
+                                    <h4 class="text-slate-900 dark:text-white font-bold text-sm uppercase tracking-wider">Resources</h4>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">Resume</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">Case Studies</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">Blog</a>
+                                </div>
+                                <div class="flex flex-col gap-4 text-center md:text-left">
+                                    <h4 class="text-slate-900 dark:text-white font-bold text-sm uppercase tracking-wider">Social</h4>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">LinkedIn</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">GitHub</a>
+                                    <a class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors text-base" href="#">Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Divider -->
+                        <div class="h-px w-full bg-slate-200 dark:bg-slate-800"></div>
+                        <!-- Bottom Footer Section: Copyright & Social Icons -->
+                        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-6 py-8 text-center md:text-left">
+                            <!-- Copyright -->
+                            <div class="flex flex-col md:flex-row items-center gap-4">
+                                <p class="text-slate-500 dark:text-slate-500 text-sm font-normal leading-normal">
+                                © 2023 Jane Doe. All rights reserved.
+                            </p>
+                                <span class="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+                                <p class="text-slate-400 dark:text-slate-600 text-sm font-normal flex items-center gap-1">
+                                Built with <span class="material-symbols-outlined text-[14px] text-primary">bolt</span> React &amp; Tailwind
+                            </p>
+                            </div>
+                            <!-- Social Icons (Visual) -->
+                            <div class="flex justify-center gap-3">
+                                <a class="group" href="#">
+                                    <div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span class="material-symbols-outlined text-[20px]">work</span>
+                                        <!-- LinkedIn substitute -->
+                                    </div>
+                                </a>
+                                <a class="group" href="#">
+                                    <div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span class="material-symbols-outlined text-[20px]">terminal</span>
+                                        <!-- Git substitute -->
+                                    </div>
+                                </a>
+                                <a class="group" href="#">
+                                    <div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+                                        <!-- Twitter substitute -->
+                                    </div>
+                                </a>
+                                <a class="group" href="#">
+                                    <div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                                        <!-- Email substitute -->
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-    <div class="hero-two">
-      <h3>"Every tick of the watch reminds us that time never stops."</h3>
-    </div>
-    <div class="hero-one">
-    <p>----- The Joy of Giving -----</p>
-  </div>
-  </section>
-  
-
-  <!-- 🔹 watch Menu -->
-  <section id="menu" class="menu">
-    <h2>⌚ Grab Your watches !</h2>
-    <div class="watch list">
-      <div class="watch list " data-name=" casio watch " data-price="400">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.L-w93lcWQcCQaU-wN6x7PAHaJ4?pid=Api&P=0&h=180" alt="watch">
-        <h3>casio watch</h3>
-        <p>Rs.400</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-      <div class="watch list" data-name=" greas quartz" data-price="300">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.THMpQcqS2Bijm2-Iym71kQHaHZ?pid=Api&P=0&h=180" alt="black watches">
-        <h3>greas quartz</h3>
-        <p>Rs.300</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-      <div class="watch list" data-name="evrglow " data-price="350">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.nJtRfN9thExxRzbknrnO_AHaCq?pid=Api&P=0&h=180"  alt="stylish ">
-        <h3>evrglow </h3>
-        <p>Rs.350</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-         <div class="watch list" data-name="americanviber" data-price="460">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.C_DoWqZhZdxc9Hr7y4Cg7wHaF7?pid=Api&P=0&h=180" alt="blue strap">
-        <h3>americanviber</h3>
-        <p>Rs.460</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-       <div class="watch list " data-name="NITYA" data-price="550">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.J3rAnEu89Mp8Yz4STjMUuQHaHa?pid=Api&P=0&h=180" alt="rose gold">
-        <h3>NITYA</h3>
-        <p>Rs.550</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-       <div class="watch list" data-name="" data-price="380">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.ql5gRFAduWYXsaEZvwaQOAHaHa?pid=Api&P=0&h=180" alt="gold">
-        <h3>charliekeen</h3>
-        <p>Rs.380</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-    <!-- 🔹 custamization -->
-<section id="special" class="special">
-  <h2>🎀 Specially Yours </h2>
-  <div class="special-list">
-  <div class="watch list" data-name="twinaura" data-price="5000">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.47sxNkgotuGHxu_8TlSz1gHaJg?pid=Api&P=0&h=180"watch">
-        <h3>twinaura</h3>
-        <p>Rs.5000</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-      <div class="watch list" data-name="verde time" data-price="10,000">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.MSuzuciAC_a8qjsKM6X61AHaHa?pid=Api&P=0&h=180" alt="watch">
-        <h3>verde time</h3>
-      <div class="watch list" data-name="verde time" data-price="10,000">
-        <p>Rs.10,000</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-      <div class="watch list" data-name="my trick" data-price="6,000">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.KPx1xgrrHk8mWuAlz5FvyQHaJE?pid=Api&P=0&h=180" alt="watch">
-        <h3>my trick</h3>
-        <p>Rs.6,000</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div>
-      
-      <div class="watch list" data-name="titan" data-price="10,000">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.Mko3IcdFJB_gno5lSb1UEAHaHa?pid=Api&P=0&h=180" alt="watch">
-        <h3>titan</h3>
-        <p>Rs.10,000</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </div> 
-     </div>
-</section>
- <!-- 🔹 topings -->
-<section id="toper" class="toper">
-  <h2>🪄customized watches for evry moment!🔮</h2>
-  <div class="toper-list">
-  <div class="watch list" 
-        <h3></h3>
-             </div>
-
-      
-      <div class="watch list " data-name="custom engraving">
-<img src="https://tse2.mm.bing.net/th/id/OIP.x6eVP2aDfxruqcWJMzRj3QHaHa?pid=Api&P=0&h=180" alt="Rasmalai">
-        <h3>custom engraving</h3>
-      </div>
-      <div class="watch list" data-name="personalized packing">
-        <img src="https://tse2.mm.bing.net/th/id/OIP.mSxqu2aMU3CK1sCvavg7NwHaHa?pid=Api&P=0&h=180" alt="packing">
-        <h3>personalized packing</h3>
-          </div>
-    
-<div class="watch list" data-name="woodern body design">
-          <img src="https://tse2.mm.bing.net/th/id/OIP.RtaT8CqU0UtUzxfrIuDf4QHaFm?pid=Api&P=0&h=180" alt="wood">
-        <h3>woodern body design</h3>
-      </div>    
-<div class="watch item" data-name="metal finish option">
-          <img src="https://tse3.mm.bing.net/th/id/OIP.D-CLTGWPsIU1Maj6Wp3eFAHaJQ?pid=Api&P=0&h=180" alt=",metal">
-        <h3>metal finish option</h3>
-      </div>    
-</div>
-     </div>
-</section>
-
-<section>
-  <div>
-  <details>
-    <summary class="btn">customisation ideas</summary>
-    <div class="toppings-box">
-      <label><input type="checkbox"> custom for alaram pattern</label><br>
-      <label><input type="checkbox"> glow in the dark options</label><br>
-      <label><input type="checkbox"> qr codes</label><br>
-      <label><input type="checkbox"> mini digital games</label><br>
-      <label><input type="checkbox"> spcial occasion customisation</label><br>
-     <label><input type="checkbox"> hidern messages</label><br>
-      <label><input type="checkbox"> solar powerd</label><br>
-     <label><input type="checkbox"> plantable packing</label><br>
-     <label><input type="checkbox"> weather sensors</label><br>
-     <label><input type="checkbox">multi time zone display </label><br>
-    </div>
-  </details>
-  </div>
-
-  <div>
-  <details>
-    <summary class="btn">Shape</summary>
-    <div class="toppings-box">
-      <label><input type="checkbox"> Square</label><br>
-      <label><input type="checkbox"> circle</label><br>
-      <label><input type="checkbox"> rectangle</label><br>
-      <label><input type="checkbox"> square</label><br>
-      <label><input type="checkbox"> heart</label><br>
-  </details>
-  </div>
-  <div>
-  <cart details>
-  
-      
-  </cart details>
-  </div>
-</section>
-
-  <!-- 🔹 Shopping Cart -->
-  <section id="cart" class="cart">
-    <h2>🛒 Your Cart</h2>
-    <ul id="watch list"></ul>
-        <button id="checkout-btn">Checkout</button>
-  </section>
-<!-- 🔹  detailing -->
- <section>
-
- </section>
-
-<section>
-  <title>Cake Order – Delivery Details</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="container">
-    <h1>Delivery Details</h1>
-
-    <!-- Hidden toggle for CSS-only popup -->
-    <input type="checkbox" id="order-placed-toggle" class="visually-hidden" />
-
-    <form class="form" action="#" method="post" novalidate>
-      <div class="grid">
-        <div class="field">
-          <label for="fullName">Full Name</label>
-          <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
-        </div>
-
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputmode="numeric"
-            pattern="[0-9]{10}"
-            placeholder="10-digit number"
-            required
-          />
-          <small class="hint">Enter 10 digits (India)</small>
-        </div>
-
-        <div class="field">
-          <label for="pincode">PIN Code</label>
-          <input
-            id="pincode"
-            name="pincode"
-            type="text"
-            inputmode="numeric"
-            pattern="[1-9][0-9]{5}"
-            placeholder="6-digit PIN"
-            required
-          />
-        </div>
-
-        <div class="field">
-          <label for="address1">Address Line </label>
-          <input id="address1" name="address1" type="text" placeholder="House/Flat, Street" required />
-        </div>
-
-        <div class="field">
-          <label for="city">City</label>
-          <input id="city" name="city" type="text" placeholder="City" required />
-        </div>
-
-        <div class="field">
-          <label for="deliveryDate">Preferred Delivery Date</label>
-          <input id="deliveryDate" name="deliveryDate" type="date" />
-        </div>
-
-        <div class="field">
-          <label for="deliveryTime">Preferred Delivery Time</label>
-          <input id="deliveryTime" name="deliveryTime" type="time" />
-        </div>
-
-        <div class="field span-2">
-          <label for="notes">message on cake</label>
-          <textarea id="notes" name="notes" rows="3" placeholder="Any special delivery instructions"></textarea>
-        </div>
-
-        <div class="field span-2 checkbox-line">
-          <input id="agree" type="checkbox" required />
-          <label for="agree">I confirm the details are correct.</label>
-        </div>
-      </div>
-
-      <!-- Label acts like a button; clicking it checks the hidden checkbox to show the popup -->
-      <label for="order-placed-toggle" class="btn primary">Place Order</label>
-    </form>
-
-    <!-- Popup Modal -->
-    <div class="modal">
-      <div class="modal-card" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-        <div class="tick" aria-hidden="true">
-          <!-- SVG tick -->
-          <svg viewBox="0 0 24 24" width="72" height="72" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" stroke="currentColor" fill="none" stroke-width="2"></circle>
-            <path d="M6 12.5l4 4 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h2 id="modal-title">Your order has been placed!</h2>
-        <p>Thank you for ordering 🎉 We’ll send a confirmation to your phone.</p>
-        <!-- Clicking this closes the popup (unchecks the checkbox) -->
-        <label for="order-placed-toggle" class="btn">OK</label>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
